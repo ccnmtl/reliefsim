@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:py="http://purl.org/kid/ns#">
+
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    <title>{% block title %}Your title goes here{% endblock %}</title>
+    <style type="text/css">
+        #pageLogin
+        {
+            font-size: 10px;
+            font-family: verdana;
+            text-align: right;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="/static/css/global.css" />
+
+{% block js %}
+{% endblock %}
+
+</head>
+
+<body>
+<div id="mainContainer">
+    <div id="header">&nbsp;</div>
+    <div id="main_content">
+
+    {% block content %}{% endblock %}
+
+    </div>
+</div>
+
+<div id="turnWindow">
+	<div id="endTurnwindow">
+		<p id="msgendTurn">Your team is busy performing the actions you assigned.....</p>
+	</div>
+</div>
+<!-- msg Window -->
+<!-- Information Window -->
+<div class="cstInformationWindow" onmouseover="mblnOnInfoWindow = true;" onmouseout="fnhideInformation();" id="divInformationWindow"> 
+  <div class="cstInformationCloseButton"> <img src="../static/images/help.gif" width="46" alt="" border="0" id="titleHelp" height="12" /> 
+    <img src="../static/images/close_btninfowindow.gif" width="14" alt="Close Window" border="0" id="closeBtn" height="11" /> 
+  </div>
+  <div id="xmlContent" class="cstInformationContentArea">
+  <p id="textResponce">
+  </p>
+  </div>
+</div>
+<!-- Information Window end-->
+</body>
+</html>

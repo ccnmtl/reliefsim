@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to ReliefSim{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="../static/javascript/mochi/MochiKit.js"></script>
+<script type="text/javascript" src="../static/javascript/libgraph/excanvas.js"></script>
+<script type="text/javascript" src="../static/javascript/libgraph/Base.js"></script>
+<script type="text/javascript" src="../static/javascript/libgraph/Layout.js"></script>
+<script type="text/javascript" src="../static/javascript/libgraph/Canvas.js"></script>
+<script type="text/javascript" src="../static/javascript/libgraph/SweetCanvas.js"></script>
+<script type="text/javascript" src="../static/javascript/mochi/effects.js"></script>
+<script type="text/javascript" src="../static/javascript/Action.js"></script>
+<script type="text/javascript" src="../static/javascript/Ajax.js"></script>
+ <!--[if IE 7]>
+  <link rel="stylesheet" type="text/css" href="../static/css/iespecific.css" />
+ <![endif]-->
+{% endblock %}
+
+
+{% block content %}
+	<div id="dataContainer">
+		<!--************** Form Start********************* -->
+				<!-- Quit &amp; turn Section start -->
+				<div id="turn_quit">
+				<div id="HelpTooltips"><img src="../static/images/helpbutton_On.gif" width="127" height="28" border="0" id="showHelp" alt="Help On" title="Help On" />
+				<div id="inforMationWindow" style="z-index:999999;">Move your mouse over the intervention or assessment for which you would like more information. This help function will remain active until you switch it off by hitting the "HELP OFF" button.</div>
+				</div>
+				<form name = "quitForm" id="quitForm">
+				<div id="quitBtn">
+				<div id="turnStatus">turn number : <span id="turnNo"></span></div><div id="qBtn"><img src="../static/images/btn_quit.gif" width="81" height="28" id="btnQuit" border="0" alt="Close" title="Close" /></div>
+				</div>
+				</form>
+				</div>
+				<!-- Quit &amp; turn Section end-->
+
+		<!--************************** Left Section Start " Contain Assessments * Interventions "*******************************-->
+		<form name="task" id="frmTask" action="" method="post">
+				<div id="sectionLeft">
+					<!-- assessments section start -->
+					<div>
+						<img src="../static/images/assessment_heading.gif" width="206" class="imgheading" height="31" border="0" alt="" />
+						<div id="assessments">
+							<label class="labelText" for="ass_1" id="ass1"><input type="radio" id="ass_1" class="form_element_leftsection" name="task_radio" value="aw" />Daily Water Supply &amp; Demand</label>
+							<label class="labelText" for="ass_2" id="ass2"><input type="radio" id="ass_2" class="form_element_leftsection" name="task_radio" value="aq" /> Water Quality</label>
+							<label class="labelText" for="ass_3" id="ass3"><input type="radio" id="ass_3" class="form_element_leftsection" name="task_radio" value="af" /> Food Supply &amp; Demand</label>
+							<label class="labelText" for="ass_4" id="ass4"><input type="radio" id="ass_4" class="form_element_leftsection" name="task_radio" value="as"  /> Sanitation Facilities</label>
+							<label class="labelText" for="ass_5" id="ass5"><input type="radio" id="ass_5" class="form_element_leftsection" name="task_radio" value="ap" /> Population</label>
+							<label class="labelText" for="ass_6" id="ass6"><input type="radio" id="ass_6" class="form_element_leftsection" name="task_radio" value="ad" /> Full Medical Profile</label>
+							<label class="labelText" for="ass_7" id="ass7"><input type="radio" id="ass_7" class="form_element_leftsection" name="task_radio" value="adf" /> Malnutrition</label>
+							<label class="labelText" for="ass_8" id="ass8"><input type="radio" id="ass_8" class="form_element_leftsection" name="task_radio" value="adc" /> Cholera Symptoms</label>
+							<label class="labelText" for="ass_9" id="ass9"><input type="radio" id="ass_9" class="form_element_leftsection" name="task_radio" value="add" /> Diarrheal Diseases</label>
+							<label class="labelText" for="ass_10" id="ass10"><input type="radio" id="ass_10" class="form_element_leftsection" name="task_radio" value="ada" /> Malaria Symptoms</label>
+							<label class="labelText" for="ass_11" id="ass11"><input type="radio" id="ass_11" class="form_element_leftsection" name="task_radio" value="adm" /> Measles Symptoms</label>
+							<label class="labelText" for="ass_12" id="ass12"><input type="radio" id="ass_12" class="form_element_leftsection" name="task_radio" value="ade" /> Meningitis Symptoms</label>
+							
+						</div>
+					</div>
+					<!-- assessments section End -->
+
+
+					<!-- interventions section Start -->
+					<div style="margin-top:10px;">
+						<img src="../static/images/interventions_heading.gif" width="206" class="imgheading"  height="32" border="0" alt="" />
+						<div id="interventions">
+							<label class="labelText" for="int_1" id="intervention1"><input type="radio" id="int_1" class="form_element_leftsection" name="task_radio" value="iw" /> Increase Daily Water Supply</label>
+							<label class="labelText" for="int_2" id="intervention2"><input type="radio" id="int_2" class="form_element_leftsection" name="task_radio" value="iq" /> Improve Water Quality</label>
+							<label class="labelText" for="int_3" id="intervention3"><input type="radio" id="int_3" class="form_element_leftsection" name="task_radio" value="ic" /> Build Community Pits</label>
+							<label class="labelText" for="int_4" id="intervention4"><input type="radio" id="int_4" class="form_element_leftsection" name="task_radio" value="id" /> Dig Defecation Trenches</label>
+							<label class="labelText" for="int_5" id="intervention5"><input type="radio" id="int_5" class="form_element_leftsection" name="task_radio" value="if" /> Increase Daily Food Supply</label>
+							<label class="labelText" for="int_6" id="intervention6"><input type="radio" id="int_6" class="form_element_leftsection" name="task_radio" value="itc" /> Treat Cholera &amp; Diarrheal Diseases</label>
+							<label class="labelText" for="int_7" id="intervention7"><input type="radio" id="int_7" class="form_element_leftsection" name="task_radio" value="ita" /> Treat Malaria</label>
+							<label class="labelText" for="int_8" id="intervention8"><input type="radio" id="int_8" class="form_element_leftsection" name="task_radio" value="itm" /> Treat Measles</label>
+							<label class="labelText" for="int_9" id="intervention9"><input type="radio" id="int_9" class="form_element_leftsection" name="task_radio" value="ite" /> Treat Meningitis</label>
+							<label class="labelText" for="int_10" id="intervention10"><input type="radio" id="int_10" class="form_element_leftsection" name="task_radio" value="itf" /> Open Supplementary Feeding Center</label>
+							<label class="labelText" for="int_11" id="intervention11"><input type="radio" id="int_11" class="form_element_leftsection" name="task_radio" value="ivc" /> Vaccinate against cholera</label>
+							<label class="labelText" for="int_12" id="intervention12"><input type="radio" id="int_12" class="form_element_leftsection" name="task_radio" value="ivm" /> Vaccinate against measles</label>
+							<label class="labelText" for="int_13" id="intervention13"><input type="radio" id="int_13" class="form_element_leftsection" name="task_radio" value="ive" /> Vaccinate against meningitis</label>				
+							</div>
+					</div>
+					<!-- interventions section End -->
+
+				</div>
+				</form>
+		<!--************************** left Section End *******************************-->
+
+		<!-- ****************Right Section Start************** -->
+				<div id="sectionRight">
+					<!-- message section start -->
+					<div id="message">
+						<div id="messageContent"></div>
+					</div>
+					<!-- message section end -->
+
+				<!-- ********************section team Start ********************-->
+					<div>
+						<img src="../static/images/team_heading.gif" width="199" class="imghead" height="33" border="0" alt="" />
+						<div id="team">
+						<div id="teamPanel">
+						
+						</div>
+						<div id="endturnSection"><img src="../static/images/btn_endTurn.gif" id="endTurn" width="72" height="27" border="0" alt="End Turn" title="End Turn" /></div>
+						</div>
+					</div>
+				<!-- ********************section team end ********************-->
+
+				<!-- ******************information gauges Start *************** -->
+				<div id="informationGauges">
+					
+        <div class="headingImage"><img src="../static/images/information_gauges_head.gif" width="203" height="31" border="0" alt="" /></div>
+					<div>
+						<label>Daily Food Supply</label> <input type="text" id="foodQuantity" name="Daily Food Supply" value="" readonly="readonly" /><div class="cal">cal</div>
+						<label>Avg. Food Demand</label> <input type="text" id="nutritionalDemand" name="Avg. Food Demand" value="" readonly="readonly" /><div class="cal">cal</div>
+						<label>Refugees w/o latrines</label> <input type="text" id="solidWaste" name="Refugees w/o latrines" readonly="readonly" />
+						<label>Community Pits</label><input type="text" id="latrinesCommPit" name="Community Pits" readonly="readonly" />
+						<label>Defecation Trenches</label><input type="text" id="latrinesDefTrench" name="Defecation Trenches" readonly="readonly" />
+						<label>Daily Water Supply</label><input type="text" id="waterQuantity" name="Daily Water Supply" value="" readonly="readonly" /><div class="liters">liters</div>
+						<label>Avg. Water Demand</label><input type="text" id="waterDemand" name="Avg. Water Demand" value="" readonly="readonly" /><div class="liters">liters</div>
+						<label>Water Quality</label><input type="text" id="waterQuality" name="Water Quality" value="" readonly="readonly" />
+						<label>Supp. Feeding Ctrs</label><input type="text" id="suppFeedingCenters" name="Supp. Feeding Ctrs" value="" readonly="readonly" />
+					</div>
+				</div>
+				<!-- ******************information gauges end *************** -->
+
+				<!-- **************************agebreakdownsection start************** -->
+				<div id="agebreakdown">
+        <div class="headingImage"><img src="../static/images/age_Breakdownhead.gif" width="200" height="31" border="0" alt="" /><img src="../static/images/butt_viewchart_normal.jpg" id="btnGraph" border="0" alt="View Chart" title="View Chart" /></div>
+					<div>
+						<div class="textHead firstsection1"></div>
+						<div class="total firstsection">Total</div>
+						<div class="lt5 firstsection">&lt;5</div>
+						<div class="fiveto firstsection">5-14</div>
+						<div class="fifteen firstsection">15+</div>
+						<div class="vaccinations firstsection">Vaccinations</div>
+						
+						<div class="textHead">Population</div>
+						<div class="total"><input type="text" id="population_0" name="total" value="" readonly="readonly" /></div>
+						<div class="lt5"><input type="text" id="population_1" name="It5" value="" readonly="readonly" /></div>
+						<div class="fiveto"><input type="text" id="population_2" name="fiveto" value="" readonly="readonly" /></div>
+						<div class="fifteen"><input type="text" id="population_3" name="fifteen" value="" readonly="readonly" /></div>
+						<div class="vaccinations"><input type="text" id="population_4" name="vaccinations" value="" readonly="readonly" /></div>
+
+						<div class="textHead">Dead</div>
+						<div class="total"><input type="text" id="dead_0" name="total" value="" readonly="readonly" /></div>
+						<div class="lt5"><input type="text" id="dead_1" name="lt5" value="" readonly="readonly" /></div>
+						<div class="fiveto"><input type="text" id="dead_2" name="fiveto" value="" readonly="readonly" /></div>
+						<div class="fifteen"><input type="text" id="dead_3" name="fifteen" value="" readonly="readonly" /></div>
+						<div class="vaccinations"><input type="text" id="dead_4" name="vaccinations" value="" readonly="readonly" /></div>
+
+						<div class="textHead">Malnourished</div>
+						<div class="total"><input type="text" id="malnourished_0" name="total" value="" readonly="readonly" /></div>
+						<div class="lt5"><input type="text" id="malnourished_1" name="lt5" value="" readonly="readonly" /></div>
+						<div class="fiveto"><input type="text" id="malnourished_2" name="fiveto" value="" readonly="readonly" /></div>
+						<div class="fifteen"><input type="text" id="malnourished_3" name="fifteen" value="" readonly="readonly" /></div>
+						<div class="vaccinations"><input type="text" id="malnourished_4" name="vaccinations" value="" readonly="readonly" /></div>
+
+						<div class="textHead">Cholera</div>
+						<div class="total"><input type="text" id="cholera_0" name="total" value="" readonly="readonly" /></div>
+						<div class="lt5"><input type="text" id="cholera_1" name="lt5" value="" readonly="readonly" /></div>
+						<div class="fiveto"><input type="text" id="cholera_2" name="fiveto" value="" readonly="readonly" /></div>
+						<div class="fifteen"><input type="text" id="cholera_3" name="fifteen" value="" readonly="readonly" /></div>
+						<div class="vaccinations"><input type="text" id="cholera_4" name="vaccinations" value="" readonly="readonly" /></div>
+
+						<div class="textHead">Diarrhea</div>
+						<div class="total"><input type="text" id="diarrhea_0" name="total" value="" readonly="readonly" /></div>
+						<div class="lt5"><input type="text" id="diarrhea_1" name="lt5" value="" readonly="readonly" /></div>
+						<div class="fiveto"><input type="text" id="diarrhea_2" name="fiveto" value="" readonly="readonly" /></div>
+						<div class="fifteen"><input type="text" id="diarrhea_3" name="fifteen" value="" readonly="readonly" /></div>
+						<div class="vaccinations"><input type="text" id="diarrhea_4" name="vaccinations" value="" readonly="readonly" /></div>
+
+						<div class="textHead">Malaria</div>
+						<div class="total"><input type="text" id="malaria_0" name="total" value="" readonly="readonly" /></div>
+						<div class="lt5"><input type="text" id="malaria_1" name="lt5" value="" readonly="readonly" /></div>
+						<div class="fiveto"><input type="text" id="malaria_2" name="fiveto" value="" readonly="readonly" /></div>
+						<div class="fifteen"><input type="text" id="malaria_3" name="fifteen" value="" readonly="readonly" /></div>
+						<div class="vaccinations"><input type="text" id="malaria_4" name="vaccinations" value="" readonly="readonly" /></div>
+
+						<div class="textHead">Measles</div>
+						<div class="total"><input type="text" id="measles_0" name="total" value="" readonly="readonly" /></div>
+						<div class="lt5"><input type="text" id="measles_1" name="lt5" value="" readonly="readonly" /></div>
+						<div class="fiveto"><input type="text" id="measles_2" name="fiveto" value="" readonly="readonly" /></div>
+						<div class="fifteen"><input type="text" id="measles_3" name="fifteen" value="" readonly="readonly" /></div>
+						<div class="vaccinations"><input type="text" id="measles_4" name="vaccinations" value="" readonly="readonly" /></div>
+
+						<div class="textHead lastsection1">Meningitis</div>
+						<div class="total lastsection"><input type="text" id="meningitis_0" name="total" value="" readonly="readonly" /></div>
+						<div class="lt5 lastsection"><input type="text" id="meningitis_1" name="lt5" value="" readonly="readonly" /></div>
+						<div class="fiveto lastsection"><input type="text" id="meningitis_2" name="fiveto" value="" readonly="readonly" /></div>
+						<div class="fifteen lastsection"><input type="text" id="meningitis_3" name="fifteen" value="" readonly="readonly" /></div>
+						<div class="vaccinations lastsection"><input type="text" id="meningitis_4" name="vaccinations" value="" readonly="readonly" /></div>
+					</div>
+				</div>
+				<!-- **************************agebreakdownsection End************** -->
+		</div>
+		<!-- ****************Right Section End************** -->
+
+	<!-- ******************population section Start*********************** -->
+		<div id="population">
+		<div id="btnCloseGraph"><img src="../static/images/graph_legend.gif" id="legend" alt="" title="" /><img src="../static/images/close_btninfowindow.gif" id="btnClose" alt="Close Graph Window" title="Close Graph Window" /></div>
+			<div id="graphSection">
+				<div id="divData"><canvas id="graph" height="278" width="640"></canvas></div>
+<!-- 				<div class="p_box"><img src="../static/images/graph_legend.gif" alt="" title="" /></div> -->
+				</div>
+				</div>
+
+			<!-- population Scripts section start -->
+			<script type="text/javascript">
+						<!--
+						MochiKit.DOM.addLoadEvent(fndrawGraph);
+										
+						//-->
+			</script>
+			<!-- population Scripts section start -->
+
+	<!-- ******************population section end*********************** -->
+	<!--************** Form End********************* -->
+	</div>
+	<!-- Data Container End-->
+{% endblock %}

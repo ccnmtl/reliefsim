@@ -1,0 +1,154 @@
+/* 
+		# Start
+			   # Author : Magic 
+			   # Date : 12/10/2007 
+			   # Description: Control the specific layout properties if browser is IE 7.  
+			   # this css inherit all properties from global.css, except the properties which is defined here.
+		# End.
+*/
+
+
+
+
+/* Left section  Form Elements*/
+.form_element_leftsection {
+	padding:0px;
+	margin-top:-2px;
+	float:left;
+}
+
+
+/* Message Section properties*/
+#message{
+	background-color:#907f51;
+	height:109px;
+	width:660px;
+	margin-left:auto;
+	margin-right:auto;
+	border:1px solid #000000;
+	text-align:left;
+	margin-top:6px;
+}
+
+
+#graphSection{
+	border:1px solid #000000;
+	width:665px;
+	height:275px;
+	margin-top:21px;
+	overflow-x:hidden;
+	position:absolute;
+	margin-left:-335px;
+}
+
+
+/*team Section properties */
+#team{
+	height:157px;
+	padding-left:5px;
+	padding-top:5px;
+}
+
+/*endturnSection*/
+#endturnSection{
+	position:auto;
+	width:658px;
+	height:29px;
+	float:left;
+	background-color:#969d69;
+	top:262px;
+	margin-bottom:13px;
+	padding-top:2px;
+	margin-left:-658px;	
+}
+
+/* Information Window Help Button*/
+#inforMationWindow{
+	position:absolute;
+	display:none;
+	width:275px;
+	height:85px;
+	background-color:#FFFBCF;
+	border:1px solid #000000;
+	color:#000000;
+	font-size:13px;
+	font-family:arial;
+	padding:5px;
+	margin-top:0px;
+	margin-left:0px;
+}
+/* Information Window Help Button end*/
+
+/*information gauges properties */
+#informationGauges{
+	margin-top:45px;
+	}
+
+/*ageBreakdown properties */
+#agebreakdown{
+	margin-top:45px;
+}
+
+/*image heading properties */
+.imgheading{
+	margin-left:-45px;
+	margin-bottom:-3px;
+	margin-top:3px;
+}
+
+.imghead{
+	margin-left:0px;
+	margin-bottom:-3px;
+	margin-top:3px;
+}
+
+/*population properties */
+/*#population{
+	left:0px;
+	margin-top:326px;
+	text-align:left;
+	height:315px;
+	margin-left:37.5%;
+	position:absolute;
+	margin-bottom:13px;
+}*/
+
+#population{
+	width:669px;
+	height:315px;
+	background-color:#ffffff;
+	padding-top:18px;
+	background-image:url('../images/population.gif');
+	background-repeat:no-repeat;
+	background-position:top-left;
+	left:-5px;
+	margin-left:0px;
+	position:relative;
+	margin-top:-300px;
+	visibility:hidden;
+}
+
+/*dataContainer properties */
+#dataContainer{
+	width:946px;
+	background-color:#eae8d1;
+	margin-left:27px;
+	margin-right:27px;
+	height:695px;
+	text-align:center;
+}
+
+/* Information Window */
+.cstInformationContentArea
+{
+	width:291px;
+	overflow: scroll;
+	overflow-x: hidden;
+	height:272px;
+}
+
+.cstInformationContentArea p{
+	width:94% !important; 
+	margin:0px; 
+	padding:0px;
+}

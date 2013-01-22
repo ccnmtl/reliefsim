@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="dataContainerGlobal">
+<p class="paraContent"><br />
+<br />
+		Game over, man!<br />
+<br />
+
+{% if dead %}
+<p class="paraContent">All your refugees have died</p>
+{% endif %}
+
+<p class="paraContent"><a href="/data">download game history</a></p>
+</p>
+	</div>
+	<!-- Data Container End-->
+{% endblock %}
