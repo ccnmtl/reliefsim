@@ -344,8 +344,7 @@ function fncallxmlAjaxFunction()
                 http_request.open("GET", url, true);
         }
 		http_request.onreadystatechange = fnRequestwinStatusChanged;
-        http_request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        http_request.setRequestHeader("Connection", "close");
+    http_request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		http_request.send(senddata);  
 }
 
